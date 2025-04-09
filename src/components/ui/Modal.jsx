@@ -1,8 +1,5 @@
 import { Dialog } from "@headlessui/react";
 
-
-
-
 export default function Modal({ isOpen, setIsOpen, title, children }) {
   function close() {
     setIsOpen(false);
@@ -23,10 +20,7 @@ export default function Modal({ isOpen, setIsOpen, title, children }) {
               transition
               className="w-full max-w-lg rounded-xl bg-white/60 backdrop-blur-sm p-6  duration-300 ease-out data-[closed]:transform-[scale(95%)] data-[closed]:opacity-0"
             >
-              <Dialog.Title
-                as="h3"
-                className="text-base/7 font-medium"
-              >
+              <Dialog.Title as="h3" className="text-base/7 font-medium">
                 {title}
               </Dialog.Title>
               {children}

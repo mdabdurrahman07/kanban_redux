@@ -1,17 +1,17 @@
-import { BellIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import MyTasks from '../components/tasks/MyTasks';
-import TaskCard from '../components/tasks/TaskCard';
-import { useState } from 'react';
-import AddTaskModel from '../components/tasks/AddTaskModel.jsx';
-import { useSelector } from 'react-redux';
+import { BellIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import MyTasks from "../components/tasks/MyTasks";
+import TaskCard from "../components/tasks/TaskCard";
+import { useState } from "react";
+import AddTaskModel from "../components/tasks/AddTaskModel.jsx";
+import { useSelector } from "react-redux";
 
 const Tasks = () => {
-  let [isOpen, setIsOpen] = useState(false)
-  const {tasks} = useSelector((state) => state.tasks)
+  let [isOpen, setIsOpen] = useState(false);
+  const { tasks } = useSelector((state) => state.tasks);
   // console.log(tasks)
-  const pendingTask = tasks.filter(item => item.status  === "pending")
-  const runningTask = tasks.filter(item => item.status  === "running")
-  const doneTask = tasks.filter(item => item.status  === "done")
+  const pendingTask = tasks.filter((item) => item.status === "pending");
+  const runningTask = tasks.filter((item) => item.status === "running");
+  const doneTask = tasks.filter((item) => item.status === "done");
   return (
     <div className="h-screen grid grid-cols-12">
       <div className="col-span-9 px-10 pt-10">
@@ -26,8 +26,13 @@ const Tasks = () => {
             <button className="border-2 border-secondary/20 hover:border-primary hover:bg-primary rounded-xl h-10 w-10 grid place-content-center text-secondary hover:text-white transition-all">
               <BellIcon className="h-6 w-6" />
             </button>
-            <button onClick={() => setIsOpen(!isOpen)} className="btn btn-primary">Add Task</button>
-            <AddTaskModel isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="btn btn-primary"
+            >
+              Add Task
+            </button>
+            <AddTaskModel isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="h-10 w-10 rounded-xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1528892952291-009c663ce843?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=644&q=80"
@@ -46,7 +51,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-              {pendingTask.map(item => <TaskCard  key={item?.id} tasksItem={item}/>)}
+              {pendingTask.map((item) => (
+                <TaskCard key={item?.id} tasksItem={item} />
+              ))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -57,7 +64,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-            {runningTask.map(item => <TaskCard  key={item?.id} tasksItem={item}/>)}
+              {runningTask.map((item) => (
+                <TaskCard key={item?.id} tasksItem={item} />
+              ))}
             </div>
           </div>
           <div className="relative h-[800px] overflow-auto">
@@ -68,7 +77,9 @@ const Tasks = () => {
               </p>
             </div>
             <div className="space-y-3">
-            {doneTask.map(item => <TaskCard  key={item?.id} tasksItem={item}/>)}
+              {doneTask.map((item) => (
+                <TaskCard key={item?.id} tasksItem={item} />
+              ))}
             </div>
           </div>
         </div>
