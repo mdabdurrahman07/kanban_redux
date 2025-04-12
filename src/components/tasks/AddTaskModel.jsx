@@ -68,12 +68,12 @@ const AddTaskModel = ({ isOpen, setIsOpen }) => {
           </label>
           <select
             className="w-full p-2 rounded-md border"
-            id="assignTo"
-            {...register("assignTo")}
+            id="assignedTo"
+            {...register("assignedTo")}
             required
           >
             <option value="">Select</option>
-            <option value="A">A</option>
+            <option value="Mir Hussain">Mir Hussain</option>
             <option value="B">B</option>
             <option value="C">C</option>
           </select>
