@@ -37,7 +37,7 @@ const userSlice = createSlice({
       state.isError = false,
       state.error = ""
     })
-    builder.addCase(createUser.pending, (state , action) => {
+    builder.addCase(createUser.rejected, (state , action) => {
       state.name = "",
       state.email = "",
       state.isLoading = false,
